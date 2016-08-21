@@ -13,8 +13,8 @@ public class Tablero {
             put("0","0");
             put("15","15");
             put("30","30");
-            put("40","40");
-            put("Punto","Punto");
+            put("45","45");
+            put("Punto","Punto para el Jugador ");
         }
     };
     public String marcador() {
@@ -23,10 +23,10 @@ public class Tablero {
 
     public void setPoint(String punto1, String punto2) {
         if (validPoints.containsKey(punto1)){
-            this.marcador.replace("jugador1", punto1);
+            this.marcador.replace("jugador1",(punto1.equals("Punto"))? validPoints.get(punto1)+ "1" : validPoints.get(punto1));
         }
         if (validPoints.containsKey(punto2)){
-            this.marcador.replace("jugador2", punto2);
+            this.marcador.replace("jugador2", (punto2.equals("Punto"))? validPoints.get(punto2)+ "2" : validPoints.get(punto2));
         }
     }
 }

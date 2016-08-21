@@ -12,6 +12,8 @@ public class TableroTests {
         chequear_marcador("0","0","0 - 0");
         chequear_marcador("15","0","15 - 0");
         chequear_marcador("30","0","30 - 0");
+        chequear_marcador("45","0","45 - 0");
+        chequear_marcador("Punto","0","Punto para el Jugador 1 - 0");
     }
 
 
