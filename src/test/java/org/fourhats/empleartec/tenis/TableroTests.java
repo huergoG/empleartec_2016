@@ -5,18 +5,25 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-
 public class TableroTests {
 
     @Test
-    public void debe_inicializar_un_tablero_en_0_0() {
+    public void chequear(){
+        chequear_marcador("0","0","0 - 0");
+        chequear_marcador("15","0","15 - 0");
+        chequear_marcador("30","0","30 - 0");
+    }
+
+
+    private void chequear_marcador(String punto1,String punto2,String marcadorEsperado) {
 
         //Given - Dado
         Tablero tablero = new Tablero();
         //When - Cuando
+        tablero.setPoint(punto1,punto2);
         String marcador = tablero.marcador();
         //Then - Entonces
-
-        Assert.assertEquals("El tablero dice cero iguales", "0 - 0", marcador);
+        Assert.assertEquals("El tablero dice", marcadorEsperado, marcador);
     }
+
 }
