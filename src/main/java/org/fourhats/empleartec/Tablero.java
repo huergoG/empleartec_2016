@@ -1,8 +1,6 @@
 package org.fourhats.empleartec;
-
 import java.util.HashMap;
 import java.util.Map;
-
 public class Tablero {
     private Map<String, String> marcador = new HashMap<String, String>() {{
         put("jugador1", "0");
@@ -20,13 +18,15 @@ public class Tablero {
     public String marcador() {
         return this.marcador.get("jugador1") +" - " +this.marcador.get("jugador2");
     }
-
-    public void setPoint(String punto1, String punto2) {
-        if (validPoints.containsKey(punto1)){
-            this.marcador.replace("jugador1",(punto1.equals("Punto"))? validPoints.get(punto1)+ "1" : validPoints.get(punto1));
+    public void setPoint(String puntos[]) {
+        for (Integer indice=0;indice<puntos.length;indice++ ){
+             Integer jugador = indice+1;
+            if (validPoints.containsKey(puntos[indice])){
+                this.marcador.replace("jugador"+jugador.toString(),this.getPunto(puntos[indice],jugador));
+            }
         }
-        if (validPoints.containsKey(punto2)){
-            this.marcador.replace("jugador2", (punto2.equals("Punto"))? validPoints.get(punto2)+ "2" : validPoints.get(punto2));
-        }
+    }
+    private String getPunto(String punto,Integer jugador){
+        return (punto.equals("Punto"))? validPoints.get(punto)+ jugador.toString() : validPoints.get(punto);
     }
 }

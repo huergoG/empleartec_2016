@@ -15,14 +15,13 @@ public class TableroTests {
         chequear_marcador("45","0","45 - 0");
         chequear_marcador("Punto","0","Punto para el Jugador 1 - 0");
     }
-
-
     private void chequear_marcador(String punto1,String punto2,String marcadorEsperado) {
 
         //Given - Dado
         Tablero tablero = new Tablero();
         //When - Cuando
-        tablero.setPoint(punto1,punto2);
+        String puntos[]={punto1, punto2};
+        tablero.setPoint(puntos);
         String marcador = tablero.marcador();
         //Then - Entonces
         Assert.assertEquals("El tablero dice", marcadorEsperado, marcador);
